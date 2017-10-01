@@ -1,0 +1,37 @@
+---
+title: "Week 2 Assignment"
+author: "Damien Pond"
+date: "01 October 2017"
+output: html_document
+---
+
+```{r, echo = FALSE,warning=FALSE,message=FALSE,fig.width=10}
+library(leaflet)
+library(leaflet.extras)
+
+locations <- data.frame(lng = round(runif(40, 18.41, 18.48),4), 
+                        lat = round(runif(40, -34.09, -34.01),4), 
+                        price = round(runif(40, 500000, 1000000),0), 
+                        year = runif(40, 2000, 2005))
+
+pal <- colorNumeric(
+    palette = "viridis",
+    domain = locations$price
+)
+
+locations %>% leaflet() %>% 
+    addProviderTiles(providers$OpenStreetMap.Mapnik, group = "Street") %>% 
+    addProviderTiles(providers$OpenStreetMap.BlackAndWhite, group = "Street BW") %>% 
+    addHeatmap(lng = ~lng, lat = ~lat, 
+               intensity = ~price,
+               gradient = "viridis",
+               group = "Heat Map",
+               blur = 40, max = max(locations$price), radius = 30) %>%
+    addMarkers(clusterOptions = markerClusterOptions(), popup = ~(paste("Location: <br> Latitude: ", as.character(lat), "Longitude: ", as.character(lng),"<br/>",  "Price: $",as.character(price),sep = ""))) %>%
+    addLayersControl(baseGroups = c("Street", "Street BW"),
+        overlayGroups = c("Markers", "Heat Map"))%>%
+    addLegend("bottomright", pal = pal, values = ~price,
+              title = "Property Price",
+              labFormat = labelFormat(prefix = "$"),
+              opacity = 1)
+```
