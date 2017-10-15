@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Boston Location Prices Model</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Boston Location Prices Model">
+  <meta name="author" content="">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Boston Location Prices Model</h1>
+    <h2>Coursera Developing Data Product Project</h2>
+    <p><br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Introduction</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>In this project, we apply a basic linear model to predict housing prices around Boston. Additionally, leaflet is used to provide a geographic interface to the data.</p>
+
+<p>The dataset can be downloaded from <a href="https://github.com/ritchieng/machine-learning-nanodegree/tree/master/model_evaluation_prediction/boston_housing">here</a></p>
+
+<p>(Note: the dataset does not contain any latitude and longitude data. For the purposes of this project, random locations were generated around the boston area.)</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>The Data</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">head(dataset)
+</code></pre>
+
+<pre><code>##      RM LSTAT PTRATIO   MEDV      lng     lat
+## 1 6.575  4.98    15.3 504000 -71.0639 42.3129
+## 2 6.421  9.14    17.8 453600 -71.0616 42.3001
+## 3 7.185  4.03    17.8 728700 -71.0725 42.3145
+## 4 6.998  2.94    18.7 701400 -71.0699 42.3183
+## 5 7.147  5.33    18.7 760200 -71.0794 42.3138
+## 6 6.430  5.21    18.7 602700 -71.0813 42.3215
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>The Data</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>RM -  average number of rooms among homes in the neighborhood.</li>
+<li>LSTAT - the percentage of homeowners in the neighborhood considered &quot;lower class&quot; (working poor).</li>
+<li>PTRATIO - the ratio of students to teachers in primary and secondary schools in the neighborhood.</li>
+<li>MEDV - the price of a house.</li>
+<li>lng - longitude.</li>
+<li>lat - latitude.</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Shiny Application</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>A <strong>shiny</strong> application is used to allow the user to interact with the data. The application can be found at [<a href="https://damienpond.shinyapps.io/Project/">https://damienpond.shinyapps.io/Project/</a>]</p>
+
+<p>The application allows interaction on two levels:</p>
+
+<ol>
+<li>A linear model calculates an expected house price based on inputs, which can be adjusted by the user.</li>
+<li>An interactive map gives location and heatmap information, as well as calculating the mean, max and min house prices within a given radius.</li>
+</ol>
+
+<p>The source code can be found on <a href="https://github.com/DamienPond001/Dev_Data_Products">Github</a></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Introduction'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='The Data'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='The Data'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Shiny Application'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
